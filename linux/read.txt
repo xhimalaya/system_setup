@@ -1,0 +1,8 @@
+1. Run these command in linux terminal.
+        ->python3 -m pip install virtualenv
+        -> mkdir projrct
+        -> cd project
+        -> virtualenv venv
+        -> source venv\bin\activate
+        -> find the the req.txt file which will find in this folder.
+        -> python3 -m pip install -r req.txt

@@ -1,0 +1,2 @@
+1. Install vmware 
+2. install linux in vmware if your main system is windows..

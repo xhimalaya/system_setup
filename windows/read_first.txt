@@ -1,0 +1,2 @@
+1. install the gcc.exe.
+2. set the root path of the gcc.
