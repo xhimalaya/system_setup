@@ -25,7 +25,7 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 from sklearn.ensemble import RandomForestClassifier as rg
-rg1=rg(n_estimators=100,criterion="entropy",n_jobs=100)
+rg1=rg(n_estimators=1000,criterion="entropy",n_jobs=10000)
 rg1.fit(X_train,y_train)
 y_pred=rg1.predict(X_test)
 from sklearn.metrics import accuracy_score

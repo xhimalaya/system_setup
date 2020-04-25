@@ -27,7 +27,9 @@ X[:, 2] = labelencoder_X_3.fit_transform(X[:, 2])
 labelencoder_X_4 = LabelEncoder()
 X[:, 3] = labelencoder_X_4.fit_transform(X[:, 3])
 X = X.astype(int)
-
+print(">"*60)
+print(X)
+print(">"*60)
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
@@ -47,6 +49,9 @@ model.compile(optimizer='adam',
 model.fit(X_train, y_train, epochs=50)
 
 y_pred = model.predict(X_test)
+print("*"*60)
+print(y_pred)
+print("*"*60)
 y_pred = np.array([np.argmax(i) for i in y_pred])
 
 from sklearn.metrics import confusion_matrix

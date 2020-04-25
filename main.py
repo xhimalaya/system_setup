@@ -62,7 +62,7 @@ def log_this(msg):
 	fp.close()
 
 def clear():
-	os.system('clear')
+	os.system()
 
 def display(recent_activities):
 	clear()
@@ -84,6 +84,7 @@ def display(recent_activities):
 	msg,
 	icmp_count,
 	icmp_count>5,)
+	log_this(msg)
 	print(banner)
 
 def AI_display(recent_activities):
@@ -143,10 +144,10 @@ def analyze(pkt):
 	src_mac = pkt[0][Ether].src
 	src_ip = pkt[0][IP].src
 	dest_ip = pkt[0][IP].dst
-	print("@"*60)
-	print(pkt)
-	print("@"*60)
-	pkt_size = len(pkt[0][Raw].load)
+	try:
+		pkt_size = len(pkt[0][Raw].load)
+	except:
+		pkt_size = len(pkt)
 	recent_activities.append("{} [{}] --> {} [{}] ({} bytes)".format(src_ip, src_mac, dest_ip, dest_mac, pkt_size))
 	if src_ip == my_ip and src_mac != my_mac:
 		icmp_count+=1
@@ -174,4 +175,5 @@ while True:
 		print("[-] ERROR !!")
 		print(e)
 		traceback.print_exc(file=sys.stdout)
-		sys.exit("\n[-] Shutting Down..")
+		# sys.exit("\n[-] Shutting Down..")
+		continue
