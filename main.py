@@ -62,7 +62,7 @@ def log_this(msg):
 	fp.close()
 
 def clear():
-	os.system()
+	os.system("clear")
 
 def display(recent_activities):
 	clear()
@@ -172,8 +172,5 @@ while True:
 		sniff(iface=interface, filter="icmp", prn=analyze)
 		print(">>>>",sniff)
 	except Exception as e:
-		print("[-] ERROR !!")
-		print(e)
-		traceback.print_exc(file=sys.stdout)
 		# sys.exit("\n[-] Shutting Down..")
 		continue
